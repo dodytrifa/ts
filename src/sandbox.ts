@@ -89,3 +89,19 @@ playerTwo = {
   age: 19,
   // skills: 'attack' //*Error
 }
+
+
+//! Dynamic Any type
+
+let stock: any = 100;
+
+stock = "hello"
+
+console.log(stock); //* hello
+
+let arr: any[] = [];
+
+let playerSix: {
+  name: any,
+  age: any
+}
