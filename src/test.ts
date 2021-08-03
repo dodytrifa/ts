@@ -1,1 +1,7 @@
-console.log('dari src folder');
+let greet: Function
+
+greet = () => {
+  console.log("hello 123");
+  
+}
+

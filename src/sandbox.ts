@@ -95,7 +95,7 @@ playerTwo = {
 
 let stock: any = 100;
 
-stock = "hello"
+stock = "hello stock"
 
 console.log(stock); //* hello
 
@@ -105,3 +105,22 @@ let playerSix: {
   name: any,
   age: any
 }
+
+//* FUNCTION
+const add = (a: number, b: number) => {
+  console.log(a + b);
+  
+}
+
+add(5,10)
+
+//*Optional parameter
+const substract = (a: number, b: number, c?: number | string) => {
+  console.log(a - b);
+  //* console.log(c); //akan undefined
+  //* bentuk default value (a: number, b: number, c: number | string = 9)
+  
+  
+}
+
+substract(20,10)

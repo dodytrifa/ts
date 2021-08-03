@@ -1,2 +1,5 @@
 "use strict";
-console.log('dari src folder');
+var greet;
+greet = function () {
+    console.log("hello 123");
+};

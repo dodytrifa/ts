@@ -62,7 +62,19 @@ playerTwo = {
 };
 //! Dynamic Any type
 var stock = 100;
-stock = "hello";
+stock = "hello stock";
 console.log(stock); //* hello
 var arr = [];
 var playerSix;
+//* FUNCTION
+var add = function (a, b) {
+    console.log(a + b);
+};
+add(5, 10);
+//*Optional parameter
+var substract = function (a, b, c) {
+    console.log(a - b);
+    //* console.log(c); //akan undefined
+    //* bentuk default value (a: number, b: number, c: number | string = 9)
+};
+substract(20, 10);
