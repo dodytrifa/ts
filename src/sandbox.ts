@@ -124,3 +124,23 @@ const substract = (a: number, b: number, c?: number | string) => {
 }
 
 substract(20,10)
+
+//* Type aliases (bentuk pertama)
+
+// const sing = (singer: {
+//   name: string,
+//   id: string | number
+// }) => {
+//   console.log(`${singer.name} singss beautifully`);
+// }
+
+//*bentuk kedua
+type StringOrNum = string | number
+
+const sing = (singer: {
+  name: string,
+  id: StringOrNum
+}) => {
+  console.log(`${singer.name} singss beautifully`);
+  
+}
