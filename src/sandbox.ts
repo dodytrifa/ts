@@ -144,3 +144,39 @@ const sing = (singer: {
   console.log(`${singer.name} singss beautifully`);
   
 }
+
+//* FUnction Signatures
+//* bentuk pertama tanpa return (void)
+let read: (a:string, b:string) => void;
+
+read = (author: string, title: string) => {
+  console.log(`${author} writes a book with the title: ${title}`);
+  
+}
+
+//*bentuk kedua dengan return
+let calc: (a:number, b:number, c:string) => number;
+
+calc = (numOne: number, numTwo:number, action:string) => {
+  if(action === "substract"){
+    return numOne - numTwo;
+  } else {
+    return numOne + numTwo //*jika tanpa pilihan else, akan error, karena strict return number
+  }
+
+}
+calc(10,5,'substract')
+
+//* BENTUK KETIGA
+let log: (obj: {
+  name: string,
+  age: number
+}) => void
+
+log = (person: {
+  name: string,
+  age: number
+}) => {
+  console.log(`${person.name} is ${person.age} years old`);
+  
+}
