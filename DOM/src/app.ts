@@ -1,5 +1,27 @@
 // const anchor = document.querySelector('a')!;
 
+class Invoice {
+  client: string;
+  details: string;
+  amount: number;
+
+  constructor(c: string, d: string, a: number){
+    this.client = c;
+    this.details = d;
+    this.amount = a
+  }
+
+  format() {
+    return `${this.client} owes Rp ${this.amount} for ${this.details}`
+  }
+}
+
+//* instantiate class
+const invoiceOne = new Invoice('John', 'web dev work', 500)
+
+//* console.log(invoiceOne);
+
+
 const form = document.querySelector('.new-item-form') as HTMLFormElement;
 
 const type = document.querySelector('#type') as HTMLSelectElement;
