@@ -1,7 +1,8 @@
 // const anchor = document.querySelector('a')!;
 
 class Invoice {
-  client: string;
+  //* BENTUK PERTAMA SEBELUM SHORTHAND
+  client: string; //* bentuk sebenarnya, public client: string
   details: string;
   amount: number;
 
@@ -10,6 +11,17 @@ class Invoice {
     this.details = d;
     this.amount = a
   }
+
+  //*AKHIR BENTUK PERTAMA
+
+  //* Bentuk constructor shorthand
+  /*
+  constructor(
+    readonly client: string,
+    private details: string,
+    public amount: number
+  ){}
+  */
 
   format() {
     return `${this.client} owes Rp ${this.amount} for ${this.details}`
@@ -29,6 +41,11 @@ invoices.push(invoiceOne);
 invoices.push(invoiceTwo);
 
 //* console.log(invoices)
+
+invoices.forEach(inv => {
+  console.log(inv.client, inv.details, inv.amount);
+  
+})
 
 
 const form = document.querySelector('.new-item-form') as HTMLFormElement;
