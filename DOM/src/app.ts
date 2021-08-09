@@ -18,8 +18,17 @@ class Invoice {
 
 //* instantiate class
 const invoiceOne = new Invoice('John', 'web dev work', 500)
+const invoiceTwo = new Invoice('Jane', 'maintenance work', 1000)
 
 //* console.log(invoiceOne);
+
+//* buat array dari class yang diinstantiate
+
+let invoices: Invoice[] = [];
+invoices.push(invoiceOne);
+invoices.push(invoiceTwo);
+
+//* console.log(invoices)
 
 
 const form = document.querySelector('.new-item-form') as HTMLFormElement;
