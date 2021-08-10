@@ -6,3 +6,5 @@ set rootDir set outDir
 watcher file
 
 tsc -w
+
+DOM = materi DOM sampai public private readonly

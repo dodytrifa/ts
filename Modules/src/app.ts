@@ -1,32 +1,4 @@
-// const anchor = document.querySelector('a')!;
-
-class Invoice {
-  //* BENTUK PERTAMA SEBELUM SHORTHAND
-  client: string; //* bentuk sebenarnya, public client: string
-  details: string;
-  amount: number;
-
-  constructor(c: string, d: string, a: number){
-    this.client = c;
-    this.details = d;
-    this.amount = a
-  }
-
-  //*AKHIR BENTUK PERTAMA
-
-  //* Bentuk constructor shorthand, tanpa perlu ketik property
-  /*
-  constructor(
-    readonly client: string,
-    private details: string,
-    public amount: number
-  ){}
-  */
-
-  format() {
-    return `${this.client} owes Rp ${this.amount} for ${this.details}`
-  }
-}
+import { Invoice } from "./module-class/Invoice.js"; //* file js karena hasil akhir tetap js yang digunakan oleh browser
 
 //* instantiate class
 const invoiceOne = new Invoice('John', 'web dev work', 500)
@@ -43,7 +15,7 @@ invoices.push(invoiceTwo);
 //* console.log(invoices)
 
 invoices.forEach(inv => {
-  console.log(inv.client, inv.details, inv.amount);
+  console.log(inv.client, inv.amount);
   
 })
 
