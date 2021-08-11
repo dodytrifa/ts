@@ -1,4 +1,34 @@
-import { Invoice } from "./module-class/Invoice.js"; //* file js karena hasil akhir tetap js yang digunakan oleh browser
+import { Invoice } from "./module-class/Invoice.js"; 
+//* ekstensi file js karena hasil akhir tetap js yang digunakan oleh browser
+
+interface isPerson {
+  name: string;
+  age: number;
+  speak(language:string): void;
+  spend(dollar: number):  number;
+}
+
+const me: isPerson = {
+  name: 'John',
+  age: 30,
+  speak(language: string): void{
+    console.log(language);
+  },
+  spend(dollar: number): number {
+    console.log('I spent', dollar);
+    return dollar;
+  }
+}
+
+console.log(me)
+
+const greetPerson = (person: isPerson) => {
+  console.log("greetPerson function says => Hello ", person.name);
+  
+}
+
+greetPerson(me)
+
 
 //* instantiate class
 const invoiceOne = new Invoice('John', 'web dev work', 500)
