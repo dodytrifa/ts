@@ -1,6 +1,7 @@
 import { Invoice } from "./module-class/Invoice.js"; 
 import { Payment } from "./module-class/Payment.js"; 
 import {HasFormatter} from './interfaces/HasFormatter.js'
+import { ListTemplate } from "./module-class/ListTemplate.js";
 
 //* ekstensi file js karena hasil akhir tetap js yang digunakan oleh browser
 
@@ -87,14 +88,21 @@ form.addEventListener('submit', (e:Event)=> {
     document = new Payment(toFrom.value, details.value, amount.valueAsNumber)
   }
 
-  console.log(document);
-  
+  list.render(document, type.value, 'end')
 
-  console.log(
-    type.value,
-    toFrom.value,
-    details.value,
-    amount.valueAsNumber
-    );
+  // console.log(document);
+  
+  //*bentuk awal
+  // console.log(
+  //   type.value,
+  //   toFrom.value,
+  //   details.value,
+  //   amount.valueAsNumber
+  //   );
 
 })
+
+//* list template instance
+
+const ul = document.querySelector('ul')!
+const list = new ListTemplate(ul)
