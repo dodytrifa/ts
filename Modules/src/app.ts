@@ -115,4 +115,41 @@ const addUID = <T extends {name: string}>(obj: T) => {
 
 let documentOne = addUID({name: "Generic User", age: 40});
 
-console.log(documentOne);
+// console.log(documentOne);
+
+
+//*bentuk pertama generic dengan interface
+/*
+interface Resource {
+  uid: number;
+  resourceName: string;
+  data: object
+}
+
+const documentTwo: Resource = {
+  uid: 1,
+  resourceName: 'person',
+  data: {name: "name from data"}
+}
+*/
+
+
+//*bentuk kedua generic dengan interface
+interface Resource<T> {
+  uid: number;
+  resourceName: string;
+  data: T
+}
+
+const documentTwo: Resource<object> = {
+  uid: 1,
+  resourceName: 'person',
+  data: {name: "name from data"}
+}
+
+const documentThree: Resource<string[]> = {
+  uid: 1,
+  resourceName: 'collector item',
+  data: ["statue", 'painting']
+}
+
