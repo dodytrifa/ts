@@ -75,3 +75,10 @@ form.addEventListener('submit', (e) => {
 //* list template instance
 const ul = document.querySelector('ul');
 const list = new ListTemplate(ul);
+//* extends di sini bisa bermacam2 type, obj, string, num, tergantung case
+const addUID = (obj) => {
+    let uid = Math.floor(Math.random() * 100);
+    return Object.assign(Object.assign({}, obj), { uid });
+};
+let documentOne = addUID({ name: "Generic User", age: 40 });
+console.log(documentOne);
