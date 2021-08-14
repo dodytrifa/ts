@@ -56,11 +56,22 @@ const amount = document.querySelector('#amount');
 form.addEventListener('submit', (e) => {
     e.preventDefault();
     let document;
+    //* bentuk sebelum implementasi tuples
+    /*
+    if(type.value === 'invoice') {
+      document = new Invoice(toFrom.value, details.value, amount.valueAsNumber)
+    } else {
+      document = new Payment(toFrom.value, details.value, amount.valueAsNumber)
+    }
+    */
+    //*implementasi tuples
+    let values;
+    values = [toFrom.value, details.value, amount.valueAsNumber];
     if (type.value === 'invoice') {
-        document = new Invoice(toFrom.value, details.value, amount.valueAsNumber);
+        document = new Invoice(...values);
     }
     else {
-        document = new Payment(toFrom.value, details.value, amount.valueAsNumber);
+        document = new Payment(...values);
     }
     list.render(document, type.value, 'end');
     // console.log(document);
@@ -81,4 +92,28 @@ const addUID = (obj) => {
     return Object.assign(Object.assign({}, obj), { uid });
 };
 let documentOne = addUID({ name: "Generic User", age: 40 });
-console.log(documentOne);
+const documentTwo = {
+    uid: 1,
+    resourceName: 'person',
+    data: { name: "name from data" }
+};
+const documentThree = {
+    uid: 1,
+    resourceName: 'collector item',
+    data: ["statue", 'painting']
+};
+var ResourceType;
+(function (ResourceType) {
+    ResourceType[ResourceType["BOOK"] = 0] = "BOOK";
+    ResourceType[ResourceType["AUTHOR"] = 1] = "AUTHOR";
+    ResourceType[ResourceType["DIRECTOR"] = 2] = "DIRECTOR";
+})(ResourceType || (ResourceType = {}));
+const documentFour = {
+    uid: 1,
+    resourceType: ResourceType.DIRECTOR,
+    data: { name: "Jennifer" }
+};
+//*tuples 
+//*membuat strict type di array
+let arr = ['halo', 900, true];
+// arr[0] = 1; //* akan error

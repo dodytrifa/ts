@@ -82,10 +82,23 @@ form.addEventListener('submit', (e:Event)=> {
 
   let document: HasFormatter;
 
+
+  //* bentuk sebelum implementasi tuples
+  /*
   if(type.value === 'invoice') {
     document = new Invoice(toFrom.value, details.value, amount.valueAsNumber)
   } else {
     document = new Payment(toFrom.value, details.value, amount.valueAsNumber)
+  }
+  */
+  
+  //*implementasi tuples
+  let values: [string, string, number]
+  values = [toFrom.value, details.value, amount.valueAsNumber]
+  if(type.value === 'invoice') {
+    document = new Invoice(...values)
+  } else {
+    document = new Payment(...values)
   }
 
   list.render(document, type.value, 'end')
@@ -153,3 +166,23 @@ const documentThree: Resource<string[]> = {
   data: ["statue", 'painting']
 }
 
+
+enum ResourceType {BOOK, AUTHOR, DIRECTOR}
+
+interface NewResource<T> {
+  uid: number;
+  resourceType: ResourceType;
+  data: T
+}
+
+const documentFour: NewResource<object> = {
+  uid: 1,
+  resourceType: ResourceType.DIRECTOR,
+  data: {name: "Jennifer"}
+}
+
+
+//*tuples 
+//*membuat strict type di array
+let arr: [string, number, boolean] = ['halo', 900, true];
+// arr[0] = 1; //* akan error

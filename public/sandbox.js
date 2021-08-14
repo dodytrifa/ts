@@ -78,3 +78,28 @@ var substract = function (a, b, c) {
     //* bentuk default value (a: number, b: number, c: number | string = 9)
 };
 substract(20, 10);
+var sing = function (singer) {
+    console.log(singer.name + " singss beautifully");
+};
+//* FUnction Signatures
+//* bentuk pertama tanpa return (void)
+var read;
+read = function (author, title) {
+    console.log(author + " writes a book with the title: " + title);
+};
+//*bentuk kedua dengan return
+var calc;
+calc = function (numOne, numTwo, action) {
+    if (action === "substract") {
+        return numOne - numTwo;
+    }
+    else {
+        return numOne + numTwo; //*jika tanpa pilihan else, akan error, karena strict return number
+    }
+};
+calc(10, 5, 'substract');
+//* BENTUK KETIGA
+var log;
+log = function (person) {
+    console.log(person.name + " is " + person.age + " years old");
+};
