@@ -1,10 +1,12 @@
 buat file tsconfig.json
-tsc --init
+tsc --init (di folder tujuan)
 set rootDir set outDir
 "include": ["src"]
 
-watcher file
-
+run watcher file
 tsc -w
 
-DOM = materi DOM sampai public private readonly
+DOM = materi DOM net ninja sampai public private readonly
+
+untuk run file js hasil transplie TS
+ts-node <nama file>
