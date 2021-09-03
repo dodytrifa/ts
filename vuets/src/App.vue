@@ -10,6 +10,9 @@
     </button> -->
 
     <!-- <p>{{jobs}}</p> -->
+    <button @click="handleClick('title')">order by title</button>
+    <button @click="handleClick('salary')">order by salary</button>
+    <button @click="handleClick('title')">order by location</button>
 
     <JobList :jobs="jobs"/>
   </div>
@@ -21,6 +24,7 @@
 import { defineComponent,reactive, ref, toRefs } from 'vue';
 import JobList from './components/JobList.vue'
 import Job  from './types/Job'
+import Sort from './types/Sort'
 
 export default defineComponent({
   name: 'App',
@@ -52,8 +56,16 @@ export default defineComponent({
       {title: 'farmer', location: 'lembang', salary: 50000, id: 1 },
       {title: 'fishermen', location: 'Marunda', salary: 100000, id: 2 },
       {title: 'planter', location: 'Sukabumi', salary: 200000, id: 3 },
+      {title: 'teacher', location: 'Jakarta', salary: 1200000, id: 4 },
+      {title: 'programmer', location: 'Jakarta', salary: 2200000, id: 5 },
     ])
-    return { jobs }
+
+    const order = ref<Sort>('title')
+    const handleClick = (term: Sort) => {
+      order.value = term
+    }
+
+    return { jobs, handleClick }
   },
   //*bentuk awal menggunakan typescript di methods
   /*
