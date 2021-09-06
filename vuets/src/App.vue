@@ -10,11 +10,19 @@
     </button> -->
 
     <!-- <p>{{jobs}}</p> -->
-    <button @click="handleClick('title')">order by title</button>
-    <button @click="handleClick('salary')">order by salary</button>
-    <button @click="handleClick('title')">order by location</button>
 
-    <JobList :jobs="jobs"/>
+    <div class="title">
+      <h1>Sorting Jobs</h1>
+    </div>
+    <header>
+      <div class="order">
+        <button @click="handleClick('title')">order by title</button>
+        <button @click="handleClick('salary')">order by salary</button>
+        <button @click="handleClick('location')">order by location</button>
+      </div>
+    </header>
+
+    <JobList :jobs="jobs" :order="order" />
   </div>
 </template>
 
@@ -51,6 +59,7 @@ export default defineComponent({
 
     return { name, age }
     */
+    
 
     const jobs = ref<Job[]>([
       {title: 'farmer', location: 'lembang', salary: 50000, id: 1 },
@@ -65,7 +74,7 @@ export default defineComponent({
       order.value = term
     }
 
-    return { jobs, handleClick }
+    return { jobs, handleClick, order }
   },
   //*bentuk awal menggunakan typescript di methods
   /*
