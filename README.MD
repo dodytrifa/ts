@@ -8,5 +8,5 @@ tsc -w
 
 DOM = materi DOM net ninja sampai public private readonly
 
-untuk run file js hasil transplie TS
+untuk run file js hasil transpile TS
 ts-node <nama file>
