@@ -6,7 +6,10 @@ set rootDir set outDir
 run watcher file
 tsc -w
 
-DOM = materi DOM net ninja sampai public private readonly
-
-untuk run file js hasil transpile TS
+run file biasa
 ts-node <nama file>
+
+untuk buat output file js hasil transpile TS
+tsc <nama file>
+
+DOM = materi DOM net ninja sampai public private readonly
