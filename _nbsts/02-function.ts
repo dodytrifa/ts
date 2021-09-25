@@ -42,5 +42,14 @@ export function mutating(
   return numbers.map(mutate);
 }
 
+//? Function - Closure
+export function addValues(num: number){
+  return (value: number) => num + value
+}
+
+export const addFive = addValues(5)
+
 
 export default addNumber
+
+//?-----Function Overloading

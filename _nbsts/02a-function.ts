@@ -1,4 +1,4 @@
-import addNumber, {addStrings,fetchData,format,mutating} from "./02-function";
+import addNumber, {addStrings,fetchData,format,mutating,addFive} from "./02-function";
 
 console.log(addNumber(5,4));
 console.log(addStrings("Hallo","User"));
@@ -11,4 +11,5 @@ console.log(fetchData("fetch"));
 //?FUNCTION RETURN FUNCTION
 console.log(mutating([8,9,9], (value) => value * 10 ));
 
+console.log(addFive(100));//*105
 
