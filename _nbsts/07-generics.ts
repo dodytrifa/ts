@@ -20,7 +20,7 @@ console.log("====Change by setter=====");
 secondSetter("second getter CHANGED")
 console.log(secondGetter());
  
-//* EXAMPLE 2
+//* ========== EXAMPLE 2 =========
 
 /* bentuk awal
 function grader<GradeItem>(
