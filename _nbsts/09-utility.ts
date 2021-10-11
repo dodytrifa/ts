@@ -1,6 +1,6 @@
 interface MyUser {
   name: string,
-  id: string,
+  id: number,
   email?: string
   phone?: string
 }
@@ -23,7 +23,7 @@ const merge = (user: MyUser, overrides: MyUserOptionsPartial): MyUser => {
 
 console.log(merge({
   name: "John", 
-  id: "johnID",
+  id: 10,
   email: "sample@mail.com"
 }, {email: "thelatest@mail.com"}));
 
@@ -46,11 +46,37 @@ const mapById = (users: MyUser[]): Record<string, MyUser> => {
 
 console.log(mapById([
   {
-    id: "firstPersonID",
+    id: 1,
     name: "John"
   },
   {
-    id: "secondPersonID",
+    id: 2,
     name: "Marie"
   },
 ]));
+
+
+type UserWithoutID = Omit<MyUser, "id">
+
+//?OMIT
+const omitId = (users: MyUser[]): Record<MyUser["id"], UserWithoutID> => {
+  return users.reduce((a,v)=> {
+    const {id, ...other} = v
+    return {
+      ...a,
+      [id]:other
+    }
+  }, {})
+}
+
+console.log(omitId([
+  {
+    id: 1,
+    name: "John"
+  },
+  {
+    id: 2,
+    name: "Marie"
+  },
+]));
+
