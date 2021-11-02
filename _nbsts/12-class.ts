@@ -4,11 +4,14 @@ interface Database {
 }
 
 class InMemoryDatabase implements Database {
-  //*visibility
+  //*visibility (akses dari luar)
+  
   //* bentuk awal
   // db: Record<string, string> = {}
+  
   //* bentuk sebelum persistent
   // private db: Record<string, string> = {}
+
   //* bentuk akhir
   protected db: Record<string, string> = {}
   get(id: string): string {
