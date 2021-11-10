@@ -1,7 +1,7 @@
 type MyFlexibleDogInfo = {
   name: string;
   [key: string]: string | number
-} & Record<string, string>
+}
 
 const dog:MyFlexibleDogInfo = {
   name: "Bruno",
@@ -19,3 +19,21 @@ type OptionsFlags<Type> = {
 }
 
 type DogInfoOptions = OptionsFlags<DogInfo>
+
+type Listener<Type> ={
+  [Property in keyof Type]: () => void
+}
+
+function listenToObject<T>(obj: T, listeners: Listener<T>): void {
+  throw "implement it"
+}
+
+const bruno: DogInfo ={
+  name: "bruno",
+  age: 9
+}
+
+listenToObject(bruno, {
+  onNameChange: (val:string) => {},
+  onAgeChange: (val: number) => {}
+})
