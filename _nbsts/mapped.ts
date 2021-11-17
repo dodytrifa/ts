@@ -20,20 +20,26 @@ type OptionsFlags<Type> = {
 
 type DogInfoOptions = OptionsFlags<DogInfo>
 
-type Listener<Type> ={
-  [Property in keyof Type]: () => void
-}
 
 function listenToObject<T>(obj: T, listeners: Listener<T>): void {
   throw "implement it"
 }
 
-const bruno: DogInfo ={
+const bruno:DogInfo ={
   name: "bruno",
   age: 9
 }
 
+type DogInfoListeners = Listener<DogInfo>
+
 listenToObject(bruno, {
   onNameChange: (val:string) => {},
-  onAgeChange: (val: number) => {}
+  onAgeChange: (val: number) => {},
+  onAgeDelete: () => {}
 })
+
+type Listener<Type> ={
+  [Property in keyof Type as `on${Capitalize<string & Property>}Change`]?: (newValue: Type[Property]) => void
+} & {
+  [Property in keyof Type as `on${Capitalize<string & Property>}Delete`]?: (newValue: Type[Property]) => void
+}
