@@ -9,7 +9,7 @@ const dog:MyFlexibleDogInfo = {
   age: 22
 }
 
-interface  DogInfo {
+interface DogInfo {
   name: string
   age: number
 }
