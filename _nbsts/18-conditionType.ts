@@ -1,4 +1,5 @@
-import fetch from "node-fetch"
+import fetch from "node-fetch" //di npm syntaxnya @types/node-fetch
+
 
 interface PokemonResults {
   count: number;
@@ -10,15 +11,23 @@ interface PokemonResults {
   }[];
 }
 
-type fetchPokemonResult<T> = T extends undefined ? Promise<PokemonResults[]> : void
+type FetchPokemonResult<T> = T extends undefined ? Promise<PokemonResults> : void
 
-function fetchPokemon<T extends undefined | ((data: PokemonResults[]) => void)>(url: string, cb?: T): fetchPokemonResult<T>{
+function fetchPokemon<T extends undefined | ((data: PokemonResults) => void)>(
+  url: string, 
+  cb?: T
+  ): FetchPokemonResult<T>{
   if(cb){
     fetch(url)
-    .then((resp) => resp.json())
-    .then(cb)
-    return undefined as fetchPokemonResult<T>
+      .then((resp) => resp.json())
+    return undefined as FetchPokemonResult<T>;
   }else {
-    return fetch(url).then(resp =>resp.json()) as fetchPokemonResult<T>
+    return fetch(url).then(resp =>resp.json()) as FetchPokemonResult<T>
   }
 }
+
+// fetchPokemon("https: //pokeapi.co/api/v2/pokemon?limit=10", (data)=>{
+//   data.results.forEach((pokemon)=>console.log(pokemon.name))
+// })
+
+
