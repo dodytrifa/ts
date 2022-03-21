@@ -6,7 +6,7 @@ set rootDir set outDir
 run watcher file
 tsc -w
 
-run file biasa
+///command run file biasa
 ts-node <nama file>
 
 untuk buat output file js hasil transpile TS
