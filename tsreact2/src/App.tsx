@@ -1,5 +1,5 @@
 // import logo from './logo.svg';
-import React, {useCallback, useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useReducer, useState} from 'react';
 import './App.css';
 
 //1 create component with prop
@@ -42,13 +42,32 @@ interface Payload {
   text: string
 }
 
+interface Todo {
+  id:number
+  todo: string
+  quantity: number
+  isComplete: boolean
+}
+
+type ActionType = 
+  | {type: "ADD", text: string}
+  | {type: "REMOVE", id:number}
 
 function App() {
   const onAlertList = useCallback((figure:number)=>{
     alert(figure)
   },[])
 
+  // useState
   const [payload, setPayload] = useState<Payload | null>(null)
+
+  // UseReducer
+  const [todos, dispatch] = useReducer((todos: Todo[], action: ActionType)=> {
+    switch(action.type){
+      case "ADD":
+    }
+  }[])
+
 
   useEffect(()=>{
     fetch("/payload.json")
@@ -64,6 +83,7 @@ function App() {
       <MyComponent>"First component with child"</MyComponent>
       <ListSample items={["one", "two", "three"]}/>
       <AlertList figures={[4,5,6]} onClick={onAlertList}/>
+      <MyComponent>"Below is sample of usetate of Payload from JSON"</MyComponent>
       <MyComponent>{JSON.stringify(payload)}</MyComponent>
     </div>
   );
