@@ -35,6 +35,8 @@ export default () => {
       HP: data.hp,
       Attack: data.attack,
       Defense: data.defense,
+      Type: (data.type.length<2 ? data.type : (data.type).slice(0,2).join(", ")),
+      // Type: (data.type.length<2 ? data.type : (data.type).split(",")),
       Speed: data.speed,
       "Special Attack": data.special_attack,
       "Special Defense": data.special_defense,
@@ -82,7 +84,7 @@ export default () => {
                           {key}
                         </td>
                         <td >
-                          {value}
+                          {key == "HP" ? <a href={`${data.hp}`} rel="noopener" target="new_tab">Link Lokasi</a> : value}
                         </td>
                       </tr>
                     ))}
