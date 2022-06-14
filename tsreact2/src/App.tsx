@@ -29,7 +29,7 @@ const AlertList: React.FunctionComponent<{
   figures: number[];
   onClick?: (figure: number) => void
 }> = ({figures, onClick})=>(
-  <ul>
+  <ul> 
   {figures.map((figure, index)=>(
     <li key={index} onClick={() => onClick?.(figure)}>
       {figure}
