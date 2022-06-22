@@ -2,6 +2,7 @@ import { LoaderFunction,json,MetaFunction } from "@remix-run/node";
 import { useLoaderData,Link, useSearchParams, Form } from "@remix-run/react";
 import { useState } from "react";
 import pokemon, {Pokemon} from "~/lib/pokemon";
+ 
 
 export let loader: LoaderFunction = ({ request }) => {
   const url = new URL(request.url);
@@ -22,7 +23,6 @@ export default function Index() {
   let pokemonList = useLoaderData<Pokemon[]>();
   const [search, setSearch] = useState(useSearchParams()[0].get("q") ?? "");
 
-  // const pokemonList = useMemo(() => pokemon.data || data[data, pokemon.])
   return (
     <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.4" }}>
       <h1>Welcome to Pokemon</h1>

@@ -15,7 +15,7 @@ export default [
     id: 1,
     name: "Bulbasaur",
     type: ["Grass", "Poison"],
-    hp: 45,
+    hp: "https://www.youtube.com/embed/_HWuKUou2bE",
     attack: 49,
     defense: 49,
     special_attack: 65,
