@@ -1,5 +1,6 @@
 buat file tsconfig.json
 tsc --init (di folder tujuan)
+
 set rootDir set outDir
 "include": ["src"]
 
